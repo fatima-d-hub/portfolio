@@ -541,6 +541,38 @@ section {
     border-radius: 999px;
 }
 
+.project-media {
+    display: block;
+    width: 100%;
+    max-width: 280px;           /* aperçu réduit, sous la description */
+    height: auto;
+    aspect-ratio: 1000 / 850;
+    object-fit: cover;
+    margin: 0 0 16px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+}
+
+.project-card .tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 14px;
+}
+
+.project-card .tech-tags li {
+    margin: 0;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--accent);
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 2px 8px;
+}
+
 .project-card ul {
     padding-left: 1.1rem;
     margin-bottom: 1.2rem;

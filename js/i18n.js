@@ -131,6 +131,7 @@
         "p2.l5": "Enhanced console interface with colours for IDs, labels and errors",
 
         "p3.title": "GeneLog – Family Genealogy",
+        "p3.gifAlt": "GeneLog demo: adding a family in the Tkinter interface",
         "p3.l1": "Developed family-genealogy management software in Python",
         "p3.l2": "Creation and management of individuals, families and relationships (parent, child, spouse)",
         "p3.l3": "Intuitive Tkinter GUI to visualise the family tree",
@@ -204,6 +205,9 @@
     document.querySelectorAll("[data-i18n-aria]").forEach(el => {
         fr[el.dataset.i18nAria] = el.getAttribute("aria-label");
     });
+    document.querySelectorAll("[data-i18n-alt]").forEach(el => {
+        fr[el.dataset.i18nAlt] = el.getAttribute("alt");
+    });
     const metaDescription = document.querySelector('meta[name="description"]');
     fr["meta.title"] = document.title;
     fr["meta.description"] = metaDescription.getAttribute("content");
@@ -225,6 +229,9 @@
         });
         document.querySelectorAll("[data-i18n-aria]").forEach(el => {
             el.setAttribute("aria-label", t(el.dataset.i18nAria));
+        });
+        document.querySelectorAll("[data-i18n-alt]").forEach(el => {
+            el.setAttribute("alt", t(el.dataset.i18nAlt));
         });
         document.title = t("meta.title");
         metaDescription.setAttribute("content", t("meta.description"));
