@@ -551,8 +551,6 @@ section {
     width: 100%;
     max-width: 280px;           /* aperçu réduit, sous la description */
     height: auto;
-    aspect-ratio: 1000 / 850;
-    object-fit: cover;
     margin: 0 0 16px;
     border-radius: 10px;
     border: 1px solid var(--border);

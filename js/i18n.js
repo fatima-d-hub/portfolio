@@ -126,7 +126,15 @@
         "p8.l3": "Modular architecture with synchronisation between the UI and business logic",
         "p8.l4": "Configuration management and customisable user controls",
 
+        "p9.title": "3D Castle",
+        "p9.gifAlt": "3D castle demo: camera rotating around the scene",
+        "p9.l1": "Modelled an interactive 3D scene of a medieval castle",
+        "p9.l2": "Procedural generation of towers, walls, battlements and arrow slits from individual bricks",
+        "p9.l3": "Parametric modelling: adjustable tower height, width and spacing",
+        "p9.l4": "Dynamic camera (mouse rotation and zoom) with ambient and directional lighting",
+
         "p1.title": "LL(1) Parser – C-like mini-language",
+        "p1.gifAlt": "LL(1) parser demo: accepted string and syntax tree display",
         "p1.l1": "Built a predictive top-down LL(1) parser in Python",
         "p1.l2": "Implemented FIRST and FOLLOW sets to build the parsing table",
         "p1.l3": "Step-by-step analysis of source code and syntax-error detection",
@@ -150,17 +158,21 @@
         "p3.l5": "Logical constraints enforced: date consistency, minimum marriage age, unique identifiers",
         "p3.l6": "Wrote a complete, structured technical report",
 
+        "p4.gifAlt": "SnapTag demo: image transformations and encryption",
         "p4.l1": "Java application to tag images and save their metadata",
         "p4.l2": "Ergonomic JavaFX interface for image management",
         "p4.l3": "Filters and transformations (rotation, mirroring, visual effects…)",
         "p4.l4": "Detailed report documenting the object-oriented architecture",
 
+        "p5.gifAlt": "Space Invaders demo: the game's main menu",
         "p5.l1": "Video game in Processing inspired by the classic “Space Invaders”",
         "p5.l2": "Implemented shooting, movement and collision mechanics",
         "p5.l3": "Visual effects to enhance the gameplay experience",
         "p5.l4": "Simple, intuitive player interface",
         "p5.l5": "Technical report describing how the game works",
 
+        "p6.intro": "Responsive web platform for booking remote sports sessions with coaches (yoga, fitness, pilates…)",
+        "p6.gifAlt": "Sportify demo: home page and overview of the services",
         "p6.l1": "User area with login and dynamic display of the user's name",
         "p6.l2": "Interface built with HTML, CSS and JavaScript, integrated with PHP",
         "p6.l3": "Redirects and session management to secure access",
