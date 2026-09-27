@@ -512,6 +512,11 @@ section {
     box-shadow: var(--shadow-hover);
 }
 
+.project-kind {
+    align-self: flex-start;
+    margin-bottom: 10px;
+}
+
 .project-head {
     display: flex;
     justify-content: space-between;

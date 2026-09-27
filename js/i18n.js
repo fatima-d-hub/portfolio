@@ -115,6 +115,17 @@
         "projects.more": "Show more",
         "projects.less": "Show less",
 
+        "p7.title": "Machine Learning: predicting Swiss votes",
+        "p7.l1": "Merged and cleaned 5 complex datasets for electoral analysis",
+        "p7.l2": "In-depth <i>feature engineering</i> to optimise the relevance of variables",
+        "p7.l3": "Trained and evaluated regression models to predict voting trends",
+
+        "p8.title": "Automated farm simulation",
+        "p8.l1": "Developed an interactive interface (JavaFX, CSS)",
+        "p8.l2": "Implemented interactions and dynamic navigation",
+        "p8.l3": "Modular architecture with synchronisation between the UI and business logic",
+        "p8.l4": "Configuration management and customisable user controls",
+
         "p1.title": "LL(1) Parser – C-like mini-language",
         "p1.l1": "Built a predictive top-down LL(1) parser in Python",
         "p1.l2": "Implemented FIRST and FOLLOW sets to build the parsing table",
@@ -123,7 +134,7 @@
         "p1.l5": "Display controls: zoom, navigation and applied rules",
         "p1.l6": "Follows a defined and validated grammar for a C-inspired mini-language",
 
-        "p2.title": "Academic Records Management",
+        "p2.title": "Academic Management System",
         "p2.l1": "Developed C++ software to manage degrees, semesters and teaching units",
         "p2.l2": "Teacher management using inheritance and polymorphism (EnseignantChercheur, AutreEnseignant)",
         "p2.l3": "Automatic calculation of teaching hours, workloads and degree costs",
