@@ -1,604 +1,657 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-bs-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diallo Fatimatou | Portfolio Développeuse Informatique</title>
-    <meta name="description" content="Portfolio de Diallo Fatimatou, étudiante en Licence Informatique : projets académiques et personnels en C++, Python, Java, web et systèmes.">
+    <meta name="description" content="Portfolio de Diallo Fatimatou, étudiante en Master 1 MIAGE à l’Université Claude Bernard Lyon 1 : analyse de données, intelligence artificielle, projets en Python, C++, Java et web.">
+
+    <!-- Thème appliqué avant l'affichage pour éviter un flash blanc en mode sombre -->
+    <script>
+        (function () {
+            var theme = null;
+            try { theme = localStorage.getItem("theme"); } catch (e) {}
+            if (!theme) {
+                theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+            }
+            document.documentElement.setAttribute("data-bs-theme", theme);
+        })();
+    </script>
+
+    <!-- Polices -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
     <!-- Bootstrap -->
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Font Awesome (icônes) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-      <!-- Ton CSS perso -->
-   <link rel="stylesheet" href="css/style.css?v=7">
-
-
-	
+    <!-- CSS perso -->
+    <link rel="stylesheet" href="css/style.css?v=11">
 </head>
 <body>
 
-     <!-- header -->
-    <header  >
+    <!-- header -->
+    <header>
         <nav class="navbar navbar-expand-md fixed-top">
-            <!-- Logo -->
-                <a class="navbar-brand" href="#">	
-				 DIALLO Fatimatou
-				</a>
-                    
-           <!-- Bouton pour mobile (visible uniquement en dessous de md) -->
-			<button class="navbar-toggler d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            <div class="container">
+                <!-- Logo -->
+                <a class="navbar-brand" href="#accueil">DIALLO Fatimatou</a>
 
-                    <div class="collapse navbar-collapse" id="menu">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                        <a class="nav-link active" href="#accueil">Accueil</a>
-                        </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="#a-propos">À propos</a>
-                        </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="#mon_parcours">Parcours</a>
-                        </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="#mes_projets">Mes projets</a>
-                        </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="#competences">Compétences</a>
-                        </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
-                        </li>
-                    </ul>
+                <!-- Langue + thème (toujours visibles, même sur mobile) -->
+                <div class="nav-controls order-md-last ms-auto ms-md-3">
+                    <div class="lang-switch" role="group" aria-label="Langue / Language">
+                        <button type="button" data-lang="fr" aria-pressed="true">FR</button>
+                        <button type="button" data-lang="en" aria-pressed="false">EN</button>
                     </div>
+                    <button type="button" class="theme-toggle" id="themeToggle" data-i18n-aria="theme.toggle" aria-label="Activer / désactiver le mode sombre">
+                        <i class="fa-solid fa-moon icon-light" aria-hidden="true"></i>
+                        <i class="fa-solid fa-sun icon-dark" aria-hidden="true"></i>
+                    </button>
+                </div>
 
+                <!-- Bouton pour mobile -->
+                <button class="navbar-toggler ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Menu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="menu">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="#accueil" data-i18n="nav.home">Accueil</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#a-propos" data-i18n="nav.about">À propos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#mon_parcours" data-i18n="nav.journey">Parcours</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#experiences" data-i18n="nav.exp">Expériences</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#mes_projets" data-i18n="nav.projects">Mes projets</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#competences" data-i18n="nav.skills">Compétences</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact" data-i18n="nav.contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
         </nav>
     </header>
 
-    <!--Main-->
-    <main id="accueil">
+    <main>
 
-        <div class="container"> 
-            <div class="row align-items-center">
+        <!-- Accueil -->
+        <section id="accueil" class="hero">
+            <div class="container">
+                <div class="row align-items-center g-4 gx-lg-5">
 
                     <!-- Texte -->
-                    <div class="col-lg-8 order-2 order-lg-1" id="gauche">
-                    <h4>DIALLO Fatimatou</h4> <br>
-                  <p class="bloc1">
-                    Étudiante en 3ᵉ année de Licence Informatique, je suis passionnée par les technologies qui transforment notre monde. 
-                    De l'architecture des <b>réseaux</b> aux avancées de l'<b>intelligence artificielle</b>, en passant par une initiation à la 
-                    <b>cybersécurité</b>, je m'efforce de concevoir des solutions numériques innovantes, fiables et sécurisées. 🚀
-                    <br>
-                    À travers ce portfolio, je vous invite à découvrir mon parcours, mes projets et mes ambitions dans l'univers de la tech.
-                </p>
-
-                    <a href="ressources/cv.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-color">Télécharger mon CV</a>
-                    <p class="citation">Créer, c'est exister deux fois</p>
-                    <a href="#mes_projets" class="btn btn-color">Voir mes projets</a>
-            </div>
-
-                    <!-- Image -->
-                <div class="col-lg-4 order-1 order-lg-2">
-                    <img src="./ressources/image/fatima.webp" id="image" alt="Portrait de Fatimatou Diallo" width="280" height="420">
-                    </div>
-
-                </div>
-        </div>
-
-
-        <section id="a-propos" class="my-5">
-                <!---Apropos-->
-            <div class="container my-5">
-                <h2 class="text-center mb-4">À propos</h2>
-                </div>
-
-                <div class="container">
-                    <div class="row ">
-                            
-                        <div class="col-lg-4 " >
-                            <img src="./ressources/image/fatima2.webp" id="image2" alt="Fatimatou Diallo" width="280" height="374" loading="lazy">
-                        </div>
-                        
-                        <div class="col-lg-8 " id="gauche2">
-                        
-                        <p class="bloc1">
-                            Étudiante en troisième année de Licence Informatique et actuellement en programme Erasmus, je considère le numérique comme un levier de création et de transformation. Formée en programmation, systèmes et réseaux, avec une initiation à la <b>cybersécurité</b> et à l'<b>intelligence artificielle</b>, je m’intéresse particulièrement à la conception de solutions à fort impact humain.
-
-                            <br> <br>
-
-                           Sur le plan professionnel, j’ai accompagné et tutoré les étudiants internationaux et les nouveaux entrants à l’Université de Limoges, développant ainsi mes compétences en accompagnement, organisation et sens du service.
-
-                            <br> <br>
-
-                            Parallèlement, je suis engagée dans le milieu associatif en tant que chargée de communication à l’<b>AEGL</b> et bénévole à <b>COP1 Limoges</b>, ce qui m’a permis de renforcer mes compétences en gestion de projets et en coordination d’équipes.
-                            <br> <br>
-
-                            Enfin, en tant qu’associée-gérante de <b>Daldigit360</b>, je supervise la transformation digitale de plusieurs PME guinéennes, consolidant ainsi ma vision stratégique et opérationnelle du numérique. Je souhaite désormais poursuivre mon cursus en <b>Master</b> afin d’approfondir mes compétences techniques et de contribuer à des projets innovants et ambitieux.
-                            
+                    <div class="col-lg-7 order-2 order-lg-1 hero-text">
+                        <p class="hero-tag" data-i18n="hero.tag">Étudiante en Master 1 MIAGE · Université Claude Bernard Lyon 1</p>
+                        <h1>DIALLO Fatimatou</h1>
+                        <p class="lead-text" data-i18n="hero.p1">
+                            Étudiante en Master 1 MIAGE, je suis passionnée par les technologies qui transforment notre monde.
+                            De l'<b>analyse de données</b> aux avancées de l'<b>intelligence artificielle</b>, en passant par les <b>réseaux</b> et une initiation à la
+                            <b>cybersécurité</b>, je m'efforce de concevoir des solutions numériques innovantes, fiables et sécurisées. 🚀
+                        </p>
+                        <p class="lead-text" data-i18n="hero.p2">
+                            À travers ce portfolio, je vous invite à découvrir mon parcours, mes projets et mes ambitions dans l'univers de la tech.
                         </p>
 
-                            <div class="text-center">
-                                <a href="#mes_projets" class="btn btn-color">Voir mes projets</a>
-                            </div>
+                        <div class="hero-actions">
+                            <a href="ressources/cv.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-accent">
+                                <i class="fa-solid fa-download" aria-hidden="true"></i> <span data-i18n="hero.cv">Télécharger mon CV</span>
+                            </a>
+                            <a href="#mes_projets" class="btn btn-outline-accent" data-i18n="hero.projects">Voir mes projets</a>
                         </div>
-                    
 
+                        <p class="citation" data-i18n="hero.quote">« Créer, c'est exister deux fois »</p>
                     </div>
+
+                    <!-- Image -->
+                    <div class="col-lg-5 order-1 order-lg-2 text-center">
+                        <img src="./ressources/image/fatima.webp" class="hero-photo" alt="Portrait de Fatimatou Diallo" width="320" height="480">
+                    </div>
+
                 </div>
-            </section>
-                
-            <!--Parcours-->    
-
-        <section id="mon_parcours">
-
-            <div class="container">
-                <h2 class="text-center mb-4">Parcours</h2>
             </div>
-
-                <div id="parcoursCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
-                    <div class="carousel-inner">
-
-                    <!-- Slide 1 : l3+l2 -->
-                    <div class="carousel-item active">
-                        <div class="row ">
-                        <div class="col-md-6">
-                            <div class="parcours">
-                            <h2>Licence 3 Informatique</h2>
-                            <h3>Université de Limoges (2025 - 2026)</h3>
-                            <ul>
-                                <li>Compilation </li>
-                                <li>Analyse et POO - C++</li>
-                                <li>Grammaire et langage </li>
-                                <li>Programmation concurrente  </li>
-                                <li>Algorithmique et Complexité </li>
-                            </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="parcours">
-                            <h2>Licence 2 Informatique</h2>
-                            <h3>Université de Limoges (2024 - 2025)</h3>
-                            <ul>                                
-                                <li>Logique </li>
-                                <li>Langage C avancé</li>
-                                <li>Projet Informatique</li>
-                                <li>Programmation orientée objet (Java)</li>
-                                <li>Développement web</li>
-                           
-                            </ul>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-
-                    <!-- Slide 2 : L1 et l2 gamal -->
-                    <div class="carousel-item">
-                        <div class="row">
-                        <div class="col-md-6">
-                            <div class="parcours">
-                            <h2>Licence 2 Génie Informatique</h2>
-                            <h3>Université Gamal Abdel Nasser de Conakry (2023 - 2024)</h3>
-                            <ul>
-                                <li>Bases de données</li>
-                                <li>Maîtrise de WordPress</li>
-                                <li>Maintenance des ordinateurs</li>
-                               <li>Programmation orientée objet (C++)</li>
-                            </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="parcours">
-                        <h2>Licence 1 Génie Informatique</h2>
-                            <h3>Université Gamal Abdel Nasser de Conakry (2022 - 2023)</h3>
-                            <ul>
-                                <li>Anglais général</li>
-                                <li>Structure des données</li>
-                                <li>Circuits électroniques</li>
-                                <li>Mathématiques pour l'informatique</li>
-
-                            </ul>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-
-                    </div>
-
-                    <!-- Contrôleurs -->
-                    <button class="carousel-control-prev" type="button" data-bs-target="#parcoursCarousel" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Précédent</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#parcoursCarousel" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Suivant</span>
-                    </button>
-
-                </div>
         </section>
 
-            
-        <!-- Mes Projets -->
-        <section id="mes_projets" class="my-5">
+
+        <!-- À propos -->
+        <section id="a-propos" class="section section-alt">
             <div class="container">
-                <h2 class="text-center mb-2">Mes projets</h2>
-                <p class="text-center mb-4">
+                <h2 class="section-title" data-i18n="about.title">À propos</h2>
+
+                <div class="row align-items-center g-4 gx-lg-5">
+                    <div class="col-lg-4 text-center">
+                        <img src="./ressources/image/fatima2.webp" class="about-photo" alt="Fatimatou Diallo" width="280" height="374" loading="lazy">
+                    </div>
+
+                    <div class="col-lg-8 about-text">
+                        <p data-i18n="about.p1">
+                            Actuellement en <b>Master 1 MIAGE</b> à l’École Polytechnique de l’Université Claude Bernard Lyon 1, je considère le numérique comme un levier de création et de transformation. Mon parcours, de Conakry à Limoges en passant par un Erasmus à Mons et un stage au CETIC, m’a menée vers l’<b>analyse de données</b> et l’<b>intelligence artificielle</b>, que j’approfondis aujourd’hui.
+                        </p>
+                        <p data-i18n="about.p2">
+                            Curieuse et engagée, j’aime les projets à fort impact humain, que ce soit à travers le développement logiciel, l’accompagnement d’étudiants ou la transformation digitale d’entreprises.
+                        </p>
+
+                        <div class="looking-box">
+                            <p class="looking-title"><i class="fa-solid fa-bullseye" aria-hidden="true"></i> <span data-i18n="about.lookTitle">Je recherche</span></p>
+                            <ul>
+                                <li data-i18n="about.look1">un <b>stage</b> à partir de <b>mai 2027</b> (fin de M1)</li>
+                                <li data-i18n="about.look2">une <b>alternance</b> pour mon <b>M2 MIAGE</b></li>
+                            </ul>
+                            <a href="#contact" class="btn btn-accent" data-i18n="about.lookBtn">Me contacter</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Parcours -->
+        <section id="mon_parcours" class="section">
+            <div class="container">
+                <h2 class="section-title" data-i18n="journey.title">Parcours</h2>
+
+                <ol class="timeline">
+                    <li class="timeline-item">
+                        <span class="timeline-date">2026 – 2027</span>
+                        <div class="timeline-card">
+                            <h3 data-i18n="tl.m1.title">Master 1 MIAGE</h3>
+                            <p class="timeline-school" data-i18n="tl.lyon">École Polytechnique – Université Claude Bernard Lyon 1</p>
+                            <ul class="chips">
+                                <li data-i18n="tl.m1.c1">Analyse et fouille de données</li>
+                                <li data-i18n="tl.m1.c2">Intelligence artificielle</li>
+                                <li data-i18n="tl.m1.c3">Gestion de projet</li>
+                                <li>MOOSCI</li>
+                                <li data-i18n="tl.m1.c5">Connaissance de l'entreprise</li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="timeline-item">
+                        <span class="timeline-date" data-i18n="tl.s6.date">2026 · Semestre 6</span>
+                        <div class="timeline-card">
+                            <span class="timeline-kind">Erasmus</span>
+                            <h3 data-i18n="tl.s6.title">Licence 3 Informatique</h3>
+                            <p class="timeline-school" data-i18n="tl.mons">Université de Mons – Belgique</p>
+                            <ul class="chips">
+                                <li data-i18n="tl.s6.c1">Bases de données avancées (Datalog, XPath, XQuery)</li>
+                                <li>Machine Learning</li>
+                                <li data-i18n="tl.s6.c3">Programmation fonctionnelle (DrRacket)</li>
+                                <li data-i18n="tl.s6.c4">Compilation avancée</li>
+                                <li data-i18n="tl.s6.c5">Projet de programmation</li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="timeline-item">
+                        <span class="timeline-date" data-i18n="tl.s5.date">2025 · Semestre 5</span>
+                        <div class="timeline-card">
+                            <h3 data-i18n="tl.l3.title">Licence 3 Informatique</h3>
+                            <p class="timeline-school" data-i18n="tl.limoges">Université de Limoges</p>
+                            <ul class="chips">
+                                <li data-i18n="tl.l3.c1">Compilation</li>
+                                <li data-i18n="tl.l3.c2">Analyse et POO – C++</li>
+                                <li data-i18n="tl.l3.c3">Grammaires et langages</li>
+                                <li data-i18n="tl.l3.c4">Programmation concurrente</li>
+                                <li data-i18n="tl.l3.c5">Algorithmique et complexité</li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="timeline-item">
+                        <span class="timeline-date">2024 – 2025</span>
+                        <div class="timeline-card">
+                            <h3 data-i18n="tl.l2.title">Licence 2 Informatique</h3>
+                            <p class="timeline-school" data-i18n="tl.limoges">Université de Limoges</p>
+                            <ul class="chips">
+                                <li data-i18n="tl.l2.c1">Logique</li>
+                                <li data-i18n="tl.l2.c2">Langage C avancé</li>
+                                <li data-i18n="tl.l2.c3">Projet informatique</li>
+                                <li data-i18n="tl.l2.c4">Programmation orientée objet (Java)</li>
+                                <li data-i18n="tl.l2.c5">Développement web</li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="timeline-item">
+                        <span class="timeline-date">2023 – 2024</span>
+                        <div class="timeline-card">
+                            <h3 data-i18n="tl.gl2.title">Licence 2 Génie Informatique</h3>
+                            <p class="timeline-school" data-i18n="tl.gamal">Université Gamal Abdel Nasser de Conakry</p>
+                            <ul class="chips">
+                                <li data-i18n="tl.gl2.c1">Bases de données</li>
+                                <li data-i18n="tl.gl2.c2">Maîtrise de WordPress</li>
+                                <li data-i18n="tl.gl2.c3">Maintenance des ordinateurs</li>
+                                <li data-i18n="tl.gl2.c4">Programmation orientée objet (C++)</li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="timeline-item">
+                        <span class="timeline-date">2022 – 2023</span>
+                        <div class="timeline-card">
+                            <h3 data-i18n="tl.gl1.title">Licence 1 Génie Informatique</h3>
+                            <p class="timeline-school" data-i18n="tl.gamal">Université Gamal Abdel Nasser de Conakry</p>
+                            <ul class="chips">
+                                <li data-i18n="tl.gl1.c1">Anglais général</li>
+                                <li data-i18n="tl.gl1.c2">Structures de données</li>
+                                <li data-i18n="tl.gl1.c3">Circuits électroniques</li>
+                                <li data-i18n="tl.gl1.c4">Mathématiques pour l'informatique</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+
+        <!-- Expériences -->
+        <section id="experiences" class="section section-alt">
+            <div class="container">
+                <h2 class="section-title" data-i18n="exp.title">Expériences</h2>
+
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <article class="project-card exp-card">
+                            <div class="exp-head">
+                                <span class="exp-icon"><i class="fa-solid fa-briefcase" aria-hidden="true"></i></span>
+                                <div>
+                                    <span class="timeline-kind" data-i18n="exp.cetic.kind">Stage international</span>
+                                    <h3 data-i18n="exp.cetic.title">Analyse de données & développement</h3>
+                                    <p class="exp-meta"><span data-i18n="exp.cetic.place">CETIC · Belgique</span> · <span data-i18n="exp.cetic.date">Juillet – Août 2026</span></p>
+                                </div>
+                            </div>
+                            <p class="exp-desc" data-i18n="exp.cetic.desc">Travail sur une application en <b>Python/Django</b> consacrée à l’analyse de données issues de projets GitLab, et découverte de l’<b>intelligence artificielle appliquée à l’analyse de données</b>.</p>
+                            <ul class="chips">
+                                <li data-i18n="exp.cetic.c1">Python / Django</li>
+                                <li data-i18n="exp.cetic.c2">Analyse de données</li>
+                                <li data-i18n="exp.cetic.c3">GitLab</li>
+                                <li data-i18n="exp.cetic.c4">IA</li>
+                            </ul>
+                        </article>
+                    </div>
+
+                    <div class="col-md-6">
+                        <article class="project-card exp-card">
+                            <div class="exp-head">
+                                <span class="exp-icon"><i class="fa-solid fa-building" aria-hidden="true"></i></span>
+                                <div>
+                                    <span class="timeline-kind" data-i18n="exp.dal.kind">Entrepreneuriat</span>
+                                    <h3 data-i18n="exp.dal.title">Associée-gérante</h3>
+                                    <p class="exp-meta"><span data-i18n="exp.dal.place">Daldigit360 · Guinée</span> · <span data-i18n="exp.dal.date">2024 – 2026</span></p>
+                                </div>
+                            </div>
+                            <p class="exp-desc" data-i18n="exp.dal.desc">Supervision de la transformation digitale de plusieurs <b>PME guinéennes</b>, avec une vision à la fois stratégique et opérationnelle du numérique.</p>
+                            <ul class="chips">
+                                <li data-i18n="exp.dal.c1">Transformation digitale</li>
+                                <li data-i18n="exp.dal.c2">Stratégie</li>
+                                <li data-i18n="exp.dal.c3">Gestion de projet</li>
+                            </ul>
+                        </article>
+                    </div>
+
+                    <div class="col-md-6">
+                        <article class="project-card exp-card">
+                            <div class="exp-head">
+                                <span class="exp-icon"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i></span>
+                                <div>
+                                    <span class="timeline-kind" data-i18n="exp.tut.kind">Tutorat</span>
+                                    <h3 data-i18n="exp.tut.title">Tutrice</h3>
+                                    <p class="exp-meta"><span data-i18n="exp.tut.place">Université de Limoges</span> · <span data-i18n="exp.tut.date">Sept. – Nov. 2025</span></p>
+                                </div>
+                            </div>
+                            <p class="exp-desc" data-i18n="exp.tut.desc">Accompagnement et tutorat des <b>étudiants internationaux</b> et des nouveaux entrants à l’Université de Limoges.</p>
+                            <ul class="chips">
+                                <li data-i18n="exp.tut.c1">Accompagnement</li>
+                                <li data-i18n="exp.tut.c2">Organisation</li>
+                                <li data-i18n="exp.tut.c3">Sens du service</li>
+                            </ul>
+                        </article>
+                    </div>
+
+                    <div class="col-md-6">
+                        <article class="project-card exp-card">
+                            <div class="exp-head">
+                                <span class="exp-icon"><i class="fa-solid fa-handshake-angle" aria-hidden="true"></i></span>
+                                <div>
+                                    <span class="timeline-kind" data-i18n="exp.asso.kind">Associatif</span>
+                                    <h3 data-i18n="exp.asso.title">Engagement associatif</h3>
+                                    <p class="exp-meta"><span data-i18n="exp.asso.place">AEGL · COP1 Limoges</span> · <span data-i18n="exp.asso.date">2025 – Sept. 2026</span></p>
+                                </div>
+                            </div>
+                            <p class="exp-desc" data-i18n="exp.asso.desc">Chargée de communication à l’<b>AEGL</b> et bénévole à <b>COP1 Limoges</b>.</p>
+                            <ul class="chips">
+                                <li data-i18n="exp.asso.c1">Communication</li>
+                                <li data-i18n="exp.asso.c2">Gestion de projets</li>
+                                <li data-i18n="exp.asso.c3">Coordination d’équipes</li>
+                            </ul>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Mes Projets -->
+        <section id="mes_projets" class="section">
+            <div class="container">
+                <h2 class="section-title mb-2" data-i18n="projects.title">Mes projets</h2>
+                <p class="section-subtitle" data-i18n="projects.subtitle">
                     Quelques projets académiques et personnels réalisés durant ma licence
                 </p>
 
-                <div class="row g-4 projets-container">
+                <div class="row g-4">
                     <!-- Projet 1 -->
                     <div class="col-md-6">
-                        <div class="card p-3 h-100 projets">
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <h5><i class="fa-solid fa-code"></i> Analyseur Syntaxique LL(1) – Mini-langage C</h5>
-                                <span>2025-26</span>
+                        <article class="project-card">
+                            <div class="project-head">
+                                <h3><i class="fa-solid fa-code" aria-hidden="true"></i> <span data-i18n="p1.title">Analyseur Syntaxique LL(1) – Mini-langage C</span></h3>
+                                <span class="project-year">2025-26</span>
                             </div>
-                            <a href="https://github.com/fatima-d-hub/Analyseur_syntaxiqye" target="_blank" rel="noopener noreferrer" class="btn btn-github mb-2">GitHub</a>
                             <ul>
-                                <li>Développement d’un analyseur syntaxique descendant prédictif LL(1) en Python</li>
-                                <li>Implémentation des ensembles PREMIER et SUIVANT pour construire la table d’analyse</li>
-                                <li>Analyse pas à pas du code source et détection des erreurs syntaxiques</li>
-                                <li>Construction et visualisation interactive de l’arbre syntaxique avec Tkinter</li>
-                                <li>Gestion de l’affichage : zoom, navigation et règles appliquées</li>
-                                <li>Respect de la grammaire définie et validée pour un mini-langage inspiré du C</li>
+                                <li data-i18n="p1.l1">Développement d’un analyseur syntaxique descendant prédictif LL(1) en Python</li>
+                                <li data-i18n="p1.l2">Implémentation des ensembles PREMIER et SUIVANT pour construire la table d’analyse</li>
+                                <li data-i18n="p1.l3">Analyse pas à pas du code source et détection des erreurs syntaxiques</li>
+                                <li data-i18n="p1.l4">Construction et visualisation interactive de l’arbre syntaxique avec Tkinter</li>
+                                <li data-i18n="p1.l5">Gestion de l’affichage : zoom, navigation et règles appliquées</li>
+                                <li data-i18n="p1.l6">Respect de la grammaire définie et validée pour un mini-langage inspiré du C</li>
                             </ul>
-                        </div>
+                            <a href="https://github.com/fatima-d-hub/Analyseur_syntaxiqye" target="_blank" rel="noopener noreferrer" class="btn btn-github"><i class="fa-brands fa-github" aria-hidden="true"></i> GitHub</a>
+                        </article>
                     </div>
 
-
-                <!-- Projet 2 -->
+                    <!-- Projet 2 -->
                     <div class="col-md-6">
-                        <div class="card p-3 h-100 projets">
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <h5><i class="fa-solid fa-school"></i> Gestion de Scolarité</h5>
-                                <span>2025-26</span>
+                        <article class="project-card">
+                            <div class="project-head">
+                                <h3><i class="fa-solid fa-school" aria-hidden="true"></i> <span data-i18n="p2.title">Gestion de Scolarité</span></h3>
+                                <span class="project-year">2025-26</span>
                             </div>
-                            <a href="https://github.com/fatima-d-hub/Analyse_et_gestion_fst" target="_blank" rel="noopener noreferrer" class="btn btn-github mb-2">GitHub</a>
                             <ul>
-                                <li>Développement d’un logiciel C++ pour gérer les diplômes, semestres et unités d’enseignement (UE)</li>
-                                <li>Gestion intelligente des enseignants avec héritage et polymorphisme (EnseignantChercheur, AutreEnseignant)</li>
-                                <li>Calcul automatique des heures ETD, charges horaires et coûts des diplômes</li>
-                                <li>Système de persistance des données via fichiers avec sérialisation/désérialisation</li>
-                                <li>Interface console améliorée avec couleurs pour IDs, libellés et erreurs</li>
+                                <li data-i18n="p2.l1">Développement d’un logiciel C++ pour gérer les diplômes, semestres et unités d’enseignement (UE)</li>
+                                <li data-i18n="p2.l2">Gestion intelligente des enseignants avec héritage et polymorphisme (EnseignantChercheur, AutreEnseignant)</li>
+                                <li data-i18n="p2.l3">Calcul automatique des heures ETD, charges horaires et coûts des diplômes</li>
+                                <li data-i18n="p2.l4">Système de persistance des données via fichiers avec sérialisation/désérialisation</li>
+                                <li data-i18n="p2.l5">Interface console améliorée avec couleurs pour IDs, libellés et erreurs</li>
                             </ul>
-                        </div>
+                            <a href="https://github.com/fatima-d-hub/Analyse_et_gestion_fst" target="_blank" rel="noopener noreferrer" class="btn btn-github"><i class="fa-brands fa-github" aria-hidden="true"></i> GitHub</a>
+                        </article>
                     </div>
-
-
 
                     <!-- Projet 3 -->
                     <div class="col-md-6">
-                        <div class="card p-3 h-100 projets">
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <h5><i class="fa-solid fa-tree"></i> GeneLog - Généalogie Familiale</h5>
-                                <span>2024-25</span>
+                        <article class="project-card">
+                            <div class="project-head">
+                                <h3><i class="fa-solid fa-tree" aria-hidden="true"></i> <span data-i18n="p3.title">GeneLog – Généalogie Familiale</span></h3>
+                                <span class="project-year">2024-25</span>
                             </div>
-                            <a href="https://github.com/fatima-d-hub/Genelog" target="_blank" rel="noopener noreferrer" class="btn btn-github mb-2">GitHub</a>
                             <ul>
-                                <li>Développement d’un logiciel de gestion de généalogie familiale en Python</li>
-                                <li>Création et gestion des individus, familles et relations (parent, enfant, conjoint)</li>
-                                <li>Interface graphique intuitive avec Tkinter pour visualiser l’arbre familial</li>
-                                <li>Sauvegarde des données dans une base SQLite locale</li>
-                                <li>Respect des contraintes logiques : cohérence des dates, âge minimum pour mariage, unicité des identifiants</li>
-                                <li>Rédaction d’un rapport technique complet et structuré du projet</li>
+                                <li data-i18n="p3.l1">Développement d’un logiciel de gestion de généalogie familiale en Python</li>
+                                <li data-i18n="p3.l2">Création et gestion des individus, familles et relations (parent, enfant, conjoint)</li>
+                                <li data-i18n="p3.l3">Interface graphique intuitive avec Tkinter pour visualiser l’arbre familial</li>
+                                <li data-i18n="p3.l4">Sauvegarde des données dans une base SQLite locale</li>
+                                <li data-i18n="p3.l5">Respect des contraintes logiques : cohérence des dates, âge minimum pour mariage, unicité des identifiants</li>
+                                <li data-i18n="p3.l6">Rédaction d’un rapport technique complet et structuré du projet</li>
                             </ul>
-                        </div>
+                            <a href="https://github.com/fatima-d-hub/Genelog" target="_blank" rel="noopener noreferrer" class="btn btn-github"><i class="fa-brands fa-github" aria-hidden="true"></i> GitHub</a>
+                        </article>
                     </div>
-
 
                     <!-- Projet 4 -->
                     <div class="col-md-6">
-                        <div class="card p-3 h-100 projets">
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <h5><i class="fa-solid fa-image"></i> Snaptag</h5>
-                                <span>2024-25</span>
+                        <article class="project-card">
+                            <div class="project-head">
+                                <h3><i class="fa-solid fa-image" aria-hidden="true"></i> SnapTag</h3>
+                                <span class="project-year">2024-25</span>
                             </div>
-                            <a href="https://github.com/fatima-d-hub/SnapTag" target="_blank" rel="noopener noreferrer" class="btn btn-github mb-2">GitHub</a>
                             <ul>
-                                <li>Développement d’une application Java pour ajouter des tags aux images et sauvegarder les métadonnées</li>
-                                <li>Conception d’une interface ergonomique avec JavaFX pour la gestion des images</li>
-                                <li>Application de filtres et de transformations (rotation, symétrie, effets visuels…)</li>
-                                <li>Rédaction d’un rapport détaillé documentant l’architecture orientée objet</li>
+                                <li data-i18n="p4.l1">Développement d’une application Java pour ajouter des tags aux images et sauvegarder les métadonnées</li>
+                                <li data-i18n="p4.l2">Conception d’une interface ergonomique avec JavaFX pour la gestion des images</li>
+                                <li data-i18n="p4.l3">Application de filtres et de transformations (rotation, symétrie, effets visuels…)</li>
+                                <li data-i18n="p4.l4">Rédaction d’un rapport détaillé documentant l’architecture orientée objet</li>
                             </ul>
-                        </div>
+                            <a href="https://github.com/fatima-d-hub/SnapTag" target="_blank" rel="noopener noreferrer" class="btn btn-github"><i class="fa-brands fa-github" aria-hidden="true"></i> GitHub</a>
+                        </article>
                     </div>
 
                     <!-- Projet 5 (masqué) -->
                     <div class="col-md-6 hidden-project">
-                        <div class="card p-3 h-100 projets">
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <h5><i class="fa-solid fa-gamepad"></i> Space Invaders</h5>
-                                <span>2024-25</span>
+                        <article class="project-card">
+                            <div class="project-head">
+                                <h3><i class="fa-solid fa-gamepad" aria-hidden="true"></i> Space Invaders</h3>
+                                <span class="project-year">2024-25</span>
                             </div>
-                        <a href="https://github.com/fatima-d-hub/SpaceInvaders" target="_blank" rel="noopener noreferrer" class="btn btn-github mb-2">GitHub</a>
                             <ul>
-                                <li>Réalisation d’un jeu vidéo en Processing inspiré du classique “Space Invaders”</li>
-                                <li>Implémentation des mécaniques de tir, de mouvement et de collision</li>
-                                <li>Intégration d’effets visuels pour améliorer l’expérience de jeu</li>
-                                <li>Conception d’une interface simple et intuitive pour le joueur</li>
-                                <li>Rédaction d’un rapport technique décrivant le fonctionnement du jeu</li>
+                                <li data-i18n="p5.l1">Réalisation d’un jeu vidéo en Processing inspiré du classique “Space Invaders”</li>
+                                <li data-i18n="p5.l2">Implémentation des mécaniques de tir, de mouvement et de collision</li>
+                                <li data-i18n="p5.l3">Intégration d’effets visuels pour améliorer l’expérience de jeu</li>
+                                <li data-i18n="p5.l4">Conception d’une interface simple et intuitive pour le joueur</li>
+                                <li data-i18n="p5.l5">Rédaction d’un rapport technique décrivant le fonctionnement du jeu</li>
                             </ul>
-                        </div>
+                            <a href="https://github.com/fatima-d-hub/SpaceInvaders" target="_blank" rel="noopener noreferrer" class="btn btn-github"><i class="fa-brands fa-github" aria-hidden="true"></i> GitHub</a>
+                        </article>
                     </div>
 
                     <!-- Projet 6 (masqué) -->
                     <div class="col-md-6 hidden-project">
-                        <div class="card p-3 h-100 projets">
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <h5><i class="fa-brands fa-spotify"></i> Spotify</h5>
-                                <span>2024-25</span>
+                        <article class="project-card">
+                            <div class="project-head">
+                                <h3><i class="fa-brands fa-spotify" aria-hidden="true"></i> Spotify</h3>
+                                <span class="project-year">2024-25</span>
                             </div>
-                            <a href="https://github.com/fatima-d-hub/Sportify" target="_blank" rel="noopener noreferrer" class="btn btn-github mb-2">GitHub</a>
                             <ul>
-                                <li>Création d’un espace utilisateur permettant la connexion et l’affichage dynamique du nom de l’utilisateur</li>
-                                <li>Développement de l’interface en HTML, CSS et JavaScript avec intégration PHP</li>
-                                <li>Mise en place d’un système de redirection et gestion de session pour sécuriser l’accès</li>
-                                <li>Ajout de fonctionnalités interactives pour améliorer l’expérience utilisateur</li>
+                                <li data-i18n="p6.l1">Création d’un espace utilisateur permettant la connexion et l’affichage dynamique du nom de l’utilisateur</li>
+                                <li data-i18n="p6.l2">Développement de l’interface en HTML, CSS et JavaScript avec intégration PHP</li>
+                                <li data-i18n="p6.l3">Mise en place d’un système de redirection et gestion de session pour sécuriser l’accès</li>
+                                <li data-i18n="p6.l4">Ajout de fonctionnalités interactives pour améliorer l’expérience utilisateur</li>
                             </ul>
+                            <a href="https://github.com/fatima-d-hub/Sportify" target="_blank" rel="noopener noreferrer" class="btn btn-github"><i class="fa-brands fa-github" aria-hidden="true"></i> GitHub</a>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="text-center mt-4">
+                    <button id="voirPlusProjets" class="btn btn-outline-accent" type="button" aria-expanded="false" data-i18n="projects.more">Voir plus</button>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Compétences -->
+        <section id="competences" class="section section-alt">
+            <div class="container">
+                <h2 class="section-title" data-i18n="skills.title">Compétences</h2>
+
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="skill-group">
+                            <h3 data-i18n="skills.g1">Langages de programmation</h3>
+                            <div class="skill-level level-adv">
+                                <p class="level-label"><span class="dots" aria-hidden="true"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span></span><span data-i18n="lvl.adv">Avancé</span></p>
+                                <ul class="badges">
+                                    <li><i class="fa-brands fa-html5" aria-hidden="true"></i> HTML & CSS</li>
+                                    <li><i class="fa-brands fa-js" aria-hidden="true"></i> JavaScript</li>
+                                    <li><i class="fa-brands fa-java" aria-hidden="true"></i> Java</li>
+                                    <li><i class="fa-brands fa-python" aria-hidden="true"></i> Python</li>
+                                </ul>
+                            </div>
+                            <div class="skill-level level-int">
+                                <p class="level-label"><span class="dots" aria-hidden="true"><span class="dot on"></span><span class="dot on"></span><span class="dot"></span></span><span data-i18n="lvl.int">Intermédiaire</span></p>
+                                <ul class="badges">
+                                    <li>C++</li>
+                                    <li><i class="fa-brands fa-php" aria-hidden="true"></i> PHP</li>
+                                    <li>SQL</li>
+                                </ul>
+                            </div>
+                            <div class="skill-level level-basic">
+                                <p class="level-label"><span class="dots" aria-hidden="true"><span class="dot on"></span><span class="dot"></span><span class="dot"></span></span><span data-i18n="lvl.basic">Notions</span></p>
+                                <ul class="badges">
+                                    <li>Racket (DrRacket)</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
 
-                </div> <!-- /row -->
-
-                <div class="text-center mt-3">
-                    <button id="voirPlusProjets" class="btn btn-color" type="button" aria-expanded="false">Voir plus</button>
-                </div>
-            </div> <!-- /container -->
-        </section>
-
-        <!-- Compétences -->
-        <section id="competences" class="my-5">
-        <div class="container">
-            <h2 class="text-center mb-5">Compétences</h2>
-
-            <div class="row g-4">
-
-            <!-- Bloc 1 : Développement & Programmation -->
-            <div class="col-md-6">
-                <h4>Développement & Programmation</h4>
-
-                <div class="skill-container">
-                <span class="skill-name">HTML & CSS — 95%</span>
-                <div class="skill-bar"><div class="skill-fill" style="--width:95%;"></div></div>
-                </div>
-                <div class="skill-container">
-                <span class="skill-name">JavaScript — 90%</span>
-                <div class="skill-bar"><div class="skill-fill" style="--width:90%;"></div></div>
-                </div>
-                <div class="skill-container">
-                <span class="skill-name">Java — 85%</span>
-                <div class="skill-bar"><div class="skill-fill" style="--width:85%;"></div></div>
-                </div>
-                <div class="skill-container">
-                <span class="skill-name">Python — 80%</span>
-                <div class="skill-bar"><div class="skill-fill" style="--width:80%;"></div></div>
-                </div>
-                <div class="skill-container">
-                <span class="skill-name">PHP — 75%</span>
-                <div class="skill-bar"><div class="skill-fill" style="--width:75%;"></div></div>
-                </div>
-                <div class="skill-container">
-                <span class="skill-name">SQL / MySQL — 70%</span>
-                <div class="skill-bar"><div class="skill-fill" style="--width:70%;"></div></div>
-                </div>
-
-            </div>
-
-            <!-- Bloc 2 : Front-end / UI & Outils -->
-            <div class="col-md-6">
-                <h4>Front-end / UI & Outils</h4>
-
-                <div class="skill-container">
-                <span class="skill-name">JavaFX — 80%</span>
-                <div class="skill-bar"><div class="skill-fill" style="--width:80%;"></div></div>
-                </div>
-                <div class="skill-container">
-                <span class="skill-name">Bootstrap — 55%</span>
-                <div class="skill-bar"><div class="skill-fill" style="--width:55%;"></div></div>
-                </div>
-                <div class="skill-container">
-                <span class="skill-name">Responsive Design — 70%</span>
-                <div class="skill-bar"><div class="skill-fill" style="--width:70%;"></div></div>
-                </div>
-                <div class="skill-container">
-                <span class="skill-name">Figma / UI Design — 55%</span>
-                <div class="skill-bar"><div class="skill-fill" style="--width:55%;"></div></div>
-                </div>
-                <div class="skill-container">
-                <span class="skill-name">WordPress — 70%</span>
-                <div class="skill-bar"><div class="skill-fill" style="--width:70%;"></div></div>
-                </div>
-                <div class="skill-container">
-                <span class="skill-name">Canva — 85%</span>
-                <div class="skill-bar"><div class="skill-fill" style="--width:85%;"></div></div>
-                </div>
-
-            </div>
-
-            <!-- Bloc 3 : Bases de données & Back-end -->
-            <div class="col-md-6">
-                <h4>Bases de données & Back-end</h4>
-
-                <div class="skill-container">
-                <span class="skill-name">MySQL / Derby — 85%</span>
-                <div class="skill-bar"><div class="skill-fill" style="--width:85%;"></div></div>
-                </div>
-                <div class="skill-container">
-                <span class="skill-name">PHP / API — 70%</span>
-                <div class="skill-bar"><div class="skill-fill" style="--width:70%;"></div></div>
-                </div>
-                <div class="skill-container">
-                <span class="skill-name">Gestion serveur — 75%</span>
-                <div class="skill-bar"><div class="skill-fill" style="--width:75%;"></div></div>
-                </div>
-                <div class="skill-container">
-                <span class="skill-name">Sécurité & persistance — 60%</span>
-                <div class="skill-bar"><div class="skill-fill" style="--width:60%;"></div></div>
-                </div>
-                <div class="skill-container">
-                <span class="skill-name">Gestion de projets — 65%</span>
-                <div class="skill-bar"><div class="skill-fill" style="--width:65%;"></div></div>
-                </div>
-                <div class="skill-container">
-                <span class="skill-name">Automatisation / Scripts — 50%</span>
-                <div class="skill-bar"><div class="skill-fill" style="--width:50%;"></div></div>
-                </div>
-
-            </div>
-
-            <!-- Bloc 4 : Soft Skills -->
-            <div class="col-md-6">
-                <h4>Soft Skills</h4>
-
-                <div class="skill-container">
-                <span class="skill-name">Travail d’équipe — 95%</span>
-                <div class="skill-bar"><div class="skill-fill" style="--width:95%;"></div></div>
-                </div>
-                <div class="skill-container">
-                <span class="skill-name">Adaptabilité — 80%</span>
-                <div class="skill-bar"><div class="skill-fill" style="--width:80%;"></div></div>
-                </div>
-                <div class="skill-container">
-                <span class="skill-name">Gestion du temps — 75%</span>
-                <div class="skill-bar"><div class="skill-fill" style="--width:75%;"></div></div>
-                </div>
-                <div class="skill-container">
-                <span class="skill-name">Créativité — 95%</span>
-                <div class="skill-bar"><div class="skill-fill" style="--width:95%;"></div></div>
-                </div>
-                <div class="skill-container">
-                <span class="skill-name">Communication — 85%</span>
-                <div class="skill-bar"><div class="skill-fill" style="--width:85%;"></div></div>
-                </div>
-                <div class="skill-container">
-                <span class="skill-name">Résolution de problèmes — 70%</span>
-                <div class="skill-bar"><div class="skill-fill" style="--width:70%;"></div></div>
-                </div>
-
-            </div>
-
-            </div>
-        </div>
-        </section>
-
-        <!--contact-->
-
-        <section id="contact" class="my-5">
-            <div class="container my-5">
-            <h2 class="text-center mb-4">Contact</h2>
-            </div>
-                <div class="container">
-                    <div class="row ">
-
-                        <div class="col-md-6 contact-info">
-                            <div>
-                                <h5 class="mb-3">Mes coordonnées</h5>
-
-                                <div class="info-item">
-                                    <img src="./ressources/logo/telephone.png" class="icon" alt="">
-                                    <a href="tel:+33748228377">07 48 22 83 77</a>
-                                </div>
-
-                                <div class="info-item">
-                                    <img src="./ressources/logo/mail.png" class="icon" alt="">
-                                    <a href="mailto:fatimatoudaka@gmail.com">fatimatoudaka@gmail.com</a>
-                                </div>
-
-                                <div class="info-item">
-                                    <img src="./ressources/logo/github.png" class="icon" alt="">
-                                    <a href="https://github.com/fatima-d-hub" target="_blank" rel="noopener noreferrer">
-                                        github.com/fatima-d-hub
-                                    </a>
-                                </div>
-                                <div class="info-item">
-                                    <img src="./ressources/logo/linkedIN.png" class="icon"  id="icom_IN" alt="">
-                                    <a href="https://www.linkedin.com/in/fatimatou-diallo-869974324" target="_blank" rel="noopener noreferrer">
-                                    linkedin.com/in/fatimatou-diallo
-                                    </a>
-                                </div>
+                    <div class="col-md-6">
+                        <div class="skill-group">
+                            <h3 data-i18n="skills.g2">Données & IA</h3>
+                            <div class="skill-level level-adv">
+                                <p class="level-label"><span class="dots" aria-hidden="true"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span></span><span data-i18n="lvl.adv">Avancé</span></p>
+                                <ul class="badges">
+                                    <li><i class="fa-solid fa-database" aria-hidden="true"></i> MySQL / Derby</li>
+                                </ul>
                             </div>
-                            <div class="citation">
-                                <p>"Toujours apprendre, toujours avancer."</p>
+                            <div class="skill-level level-int">
+                                <p class="level-label"><span class="dots" aria-hidden="true"><span class="dot on"></span><span class="dot on"></span><span class="dot"></span></span><span data-i18n="lvl.int">Intermédiaire</span></p>
+                                <ul class="badges">
+                                    <li>SQLite</li>
+                                    <li><i class="fa-solid fa-chart-line" aria-hidden="true"></i> <span data-i18n="sk.data">Analyse de données</span></li>
+                                    <li><span data-i18n="sk.security">Sécurité & persistance</span></li>
+                                </ul>
+                            </div>
+                            <div class="skill-level level-basic">
+                                <p class="level-label"><span class="dots" aria-hidden="true"><span class="dot on"></span><span class="dot"></span><span class="dot"></span></span><span data-i18n="lvl.basic">Notions</span></p>
+                                <ul class="badges">
+                                    <li><i class="fa-solid fa-robot" aria-hidden="true"></i> Machine Learning</li>
+                                    <li>Datalog</li>
+                                    <li>XPath / XQuery</li>
+                                </ul>
                             </div>
                         </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="skill-group">
+                            <h3 data-i18n="skills.g3">Frameworks & outils</h3>
+                            <div class="skill-level level-adv">
+                                <p class="level-label"><span class="dots" aria-hidden="true"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span></span><span data-i18n="lvl.adv">Avancé</span></p>
+                                <ul class="badges">
+                                    <li>JavaFX</li>
+                                    <li>Canva</li>
+                                </ul>
+                            </div>
+                            <div class="skill-level level-int">
+                                <p class="level-label"><span class="dots" aria-hidden="true"><span class="dot on"></span><span class="dot on"></span><span class="dot"></span></span><span data-i18n="lvl.int">Intermédiaire</span></p>
+                                <ul class="badges">
+                                    <li>Django</li>
+                                    <li>Tkinter</li>
+                                    <li><i class="fa-brands fa-wordpress" aria-hidden="true"></i> WordPress</li>
+                                    <li>Responsive Design</li>
+                                    <li><i class="fa-brands fa-gitlab" aria-hidden="true"></i> Git / GitLab</li>
+                                    <li><i class="fa-solid fa-server" aria-hidden="true"></i> <span data-i18n="sk.server">Gestion serveur</span></li>
+                                </ul>
+                            </div>
+                            <div class="skill-level level-basic">
+                                <p class="level-label"><span class="dots" aria-hidden="true"><span class="dot on"></span><span class="dot"></span><span class="dot"></span></span><span data-i18n="lvl.basic">Notions</span></p>
+                                <ul class="badges">
+                                    <li><i class="fa-brands fa-bootstrap" aria-hidden="true"></i> Bootstrap</li>
+                                    <li><i class="fa-brands fa-figma" aria-hidden="true"></i> Figma</li>
+                                    <li><span data-i18n="sk.scripts">Automatisation / Scripts</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="skill-group">
+                            <h3>Soft Skills</h3>
+                            <ul class="badges badges-soft">
+                                <li><i class="fa-solid fa-people-group" aria-hidden="true"></i> <span data-i18n="sk.team">Travail d’équipe</span></li>
+                                <li><i class="fa-solid fa-lightbulb" aria-hidden="true"></i> <span data-i18n="sk.creativity">Créativité</span></li>
+                                <li><i class="fa-solid fa-comments" aria-hidden="true"></i> Communication</li>
+                                <li><i class="fa-solid fa-shuffle" aria-hidden="true"></i> <span data-i18n="sk.adapt">Adaptabilité</span></li>
+                                <li><i class="fa-solid fa-clock" aria-hidden="true"></i> <span data-i18n="sk.time">Gestion du temps</span></li>
+                                <li><i class="fa-solid fa-list-check" aria-hidden="true"></i> <span data-i18n="sk.pm">Gestion de projets</span></li>
+                                <li><i class="fa-solid fa-puzzle-piece" aria-hidden="true"></i> <span data-i18n="sk.problem">Résolution de problèmes</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
 
-                        <div class="col-md-6 contact-info" id="message">
-                                
-                             <form id="contactForm" action="https://formsubmit.co/fatimatoudaka@gmail.com" method="POST">
+        <!-- Contact -->
+        <section id="contact" class="section">
+            <div class="container">
+                <h2 class="section-title" data-i18n="contact.title">Contact</h2>
+
+                <div class="row g-4">
+                    <div class="col-md-5">
+                        <div class="contact-card h-100">
+                            <h3 data-i18n="contact.info">Mes coordonnées</h3>
+
+                            <div class="info-item">
+                                <span class="info-icon"><i class="fa-solid fa-phone" aria-hidden="true"></i></span>
+                                <a href="tel:+33748228377">07 48 22 83 77</a>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-icon"><i class="fa-solid fa-envelope" aria-hidden="true"></i></span>
+                                <a href="mailto:fatimatoudaka@gmail.com">fatimatoudaka@gmail.com</a>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-icon"><i class="fa-brands fa-github" aria-hidden="true"></i></span>
+                                <a href="https://github.com/fatima-d-hub" target="_blank" rel="noopener noreferrer">github.com/fatima-d-hub</a>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-icon"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></span>
+                                <a href="https://www.linkedin.com/in/fatimatou-diallo-869974324" target="_blank" rel="noopener noreferrer">linkedin.com/in/fatimatou-diallo</a>
+                            </div>
+
+                            <p class="citation mt-4 mb-0" data-i18n="contact.quote">« Toujours apprendre, toujours avancer. »</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-7">
+                        <div class="contact-card h-100">
+                            <form id="contactForm" action="https://formsubmit.co/fatimatoudaka@gmail.com" method="POST">
                                 <!-- Envoi via FormSubmit (GitHub Pages ne peut pas exécuter de PHP) -->
                                 <input type="hidden" name="_subject" value="Message Portfolio Diallo Fatimatou">
                                 <input type="hidden" name="_template" value="table">
                                 <input type="hidden" name="_captcha" value="false">
                                 <!-- Anti-spam : champ invisible que seuls les robots remplissent -->
                                 <input type="text" name="_honey" class="d-none" tabindex="-1" autocomplete="off">
+
                                 <div class="mb-3">
-                                <label for="n" class="form-label"><b>Nom</b></label>
-                                <input type="text" name="nom" class="form-control" id="n" placeholder="Votre nom" required>
+                                    <label for="n" class="form-label" data-i18n="form.name">Nom</label>
+                                    <input type="text" name="nom" class="form-control" id="n" placeholder="Votre nom" data-i18n-placeholder="form.namePh" required>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="e" class="form-label"><b>Email</b></label>
+                                    <label for="e" class="form-label">Email</label>
                                     <input type="email" name="email" class="form-control" id="e" placeholder="exemple@mail.com" required>
                                 </div>
-                                    <div class="mb-3">
-                                    <label for="m" class="form-label"><b>Votre commentaire</b></label>
-                                    <textarea class="form-control" name="message" id="m" rows="4" placeholder="Votre message..." required></textarea>
+                                <div class="mb-3">
+                                    <label for="m" class="form-label" data-i18n="form.message">Votre message</label>
+                                    <textarea class="form-control" name="message" id="m" rows="5" placeholder="Votre message..." data-i18n-placeholder="form.messagePh" required></textarea>
                                 </div>
-                                    <button type="submit" class="btn btn-primary" id="submitBtn">Envoyer</button>
+                                <button type="submit" class="btn btn-accent" id="submitBtn" data-i18n="form.send">Envoyer</button>
                             </form>
-                                <!-- Message de confirmation -->
-                                <div id="successMessage" style="display: none;" class="alert alert-success mt-2 mb-3" role="status">
-                                    ✅ Merci ! Votre message a été envoyé.
-                                </div>
-                                <div id="errorMessage" style="display: none;" class="alert alert-danger mt-2 mb-3" role="alert">
-                                    ❌ L'envoi a échoué. Vous pouvez m'écrire directement à fatimatoudaka@gmail.com.
-                                </div>
+
+                            <div id="successMessage" style="display: none;" class="alert alert-success mt-3 mb-0" role="status" data-i18n="form.success">
+                                Merci ! Votre message a été envoyé.
+                            </div>
+                            <div id="errorMessage" style="display: none;" class="alert alert-danger mt-3 mb-0" role="alert" data-i18n="form.error">
+                                L'envoi a échoué. Vous pouvez m'écrire directement à fatimatoudaka@gmail.com.
+                            </div>
                         </div>
                     </div>
                 </div>
-        
-
-
-            </section>
+            </div>
+        </section>
     </main>
 
-<footer class="footer">
-  <div class="container">
-    <div class="row">
-      
-      <!-- Texte -->
-      <div class="col-md-12 text-center text-md-start">
-        <p class="text_footer mb-0">
-          © 2026 Diallo Fatimatou — Limoges, France
-        </p>
-      </div>
-      
-      <!-- Réseaux sociaux -->
-      <div class="col-md-12 text-center text-md-center">
-                <a href="https://www.linkedin.com/in/fatimatou-diallo-869974324" target="_blank" rel="noopener noreferrer" class="social" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-                <a href="https://github.com/fatima-d-hub" target="_blank" rel="noopener noreferrer" class="social" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-      </div>
-    </div>
-  </div>
-</footer>
+    <footer class="footer">
+        <div class="container text-center">
+            <p class="mb-2">© 2026 Diallo Fatimatou — Lyon, France</p>
+            <a href="https://www.linkedin.com/in/fatimatou-diallo-869974324" target="_blank" rel="noopener noreferrer" class="social" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://github.com/fatima-d-hub" target="_blank" rel="noopener noreferrer" class="social" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+        </div>
+    </footer>
 
+    <!-- Bootstrap Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-
-
-
-<!-- Bootstrap Bundle JS  -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-
-
-<!-- Script principal -->
-<script src="js/script.js?v=2" defer></script>
-
-
-
+    <!-- Traductions puis script principal -->
+    <script src="js/i18n.js?v=4" defer></script>
+    <script src="js/script.js?v=4" defer></script>
 </body>
 </html>

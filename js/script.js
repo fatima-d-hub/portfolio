@@ -16,7 +16,7 @@ form.addEventListener("submit", function (e) {
     successMsg.style.display = "none";
     errorMsg.style.display = "none";
     submitBtn.disabled = true;
-    submitBtn.textContent = "Envoi...";
+    submitBtn.textContent = i18n.t("form.sending");
 
     // Même adresse que l'attribut action, mais sur l'endpoint AJAX
     const endpoint = form.action.replace("formsubmit.co/", "formsubmit.co/ajax/");
@@ -49,7 +49,7 @@ form.addEventListener("submit", function (e) {
     })
     .finally(() => {
         submitBtn.disabled = false;
-        submitBtn.textContent = "Envoyer";
+        submitBtn.textContent = i18n.t("form.send");
     });
 });
 
@@ -70,28 +70,10 @@ btnVoirPlus.addEventListener('click', () => {
     const ouvert = btnVoirPlus.getAttribute('aria-expanded') === 'true';
     hiddenProjects.forEach(p => p.classList.toggle('show', !ouvert));
     btnVoirPlus.setAttribute('aria-expanded', String(!ouvert));
-    btnVoirPlus.textContent = ouvert ? "Voir plus" : "Voir moins";
+    // La clé data-i18n suit l'état du bouton, pour rester traduite si on change de langue
+    btnVoirPlus.dataset.i18n = ouvert ? "projects.more" : "projects.less";
+    btnVoirPlus.textContent = i18n.t(btnVoirPlus.dataset.i18n);
 });
-
-
-// Animation des barres de compétences quand elles apparaissent à l'écran
-const skills = document.querySelectorAll('.skill-fill');
-
-if ('IntersectionObserver' in window) {
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.width = entry.target.style.getPropertyValue('--width');
-                observer.unobserve(entry.target); // une seule animation par barre
-            }
-        });
-    }, { threshold: 0.2 });
-    skills.forEach(skill => observer.observe(skill));
-} else {
-    skills.forEach(skill => {
-        skill.style.width = skill.style.getPropertyValue('--width');
-    });
-}
 
 
 // Fermer le menu mobile après un clic sur un lien
@@ -102,4 +84,13 @@ document.querySelectorAll('#menu .nav-link').forEach(link => {
             bootstrap.Collapse.getOrCreateInstance(menu, { toggle: false }).hide();
         }
     });
+});
+
+
+// Mode clair / sombre (le thème initial est appliqué dans le <head> de index.html)
+document.getElementById('themeToggle').addEventListener('click', () => {
+    const racine = document.documentElement;
+    const theme = racine.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark';
+    racine.setAttribute('data-bs-theme', theme);
+    try { localStorage.setItem('theme', theme); } catch (e) {}
 });
