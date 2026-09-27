@@ -1,7 +1,7 @@
 /* === BODY & POLICE === */
 body {
-    font-family: 'Times New Roman', Times, serif;
-    background-color: #f6f4f4;
+    font-family: 'Times New Roman', Times, sans-serif;
+    background-color: #f8f9fa;
     padding-top: 70px; 
     margin: 0;
 }
@@ -9,8 +9,9 @@ html, body {
   overflow-x: hidden; 
 }
 
-html {
-    scroll-behavior: smooth;
+
+section {
+  scroll-margin-top: 80px; /* hauteur de ta navbar */
 }
 
 
@@ -36,12 +37,6 @@ html {
 
 
 
-.ul1 {
-    margin-left: 90px;
-  
-    justify-content: flex-start;
-}
-
 /* === MAIN === */
 #gauche {
     margin-top: 50px;
@@ -57,7 +52,7 @@ html {
     font-size: 1.1rem;
     margin-bottom: 20px;
     line-height: 1.6;
-    font-style: justify;
+    text-align: justify;
 }
 /* === Apropos === */
 #gauche2 {
@@ -74,7 +69,7 @@ html {
     font-size: 1.1rem;
     margin-bottom: 20px;
     line-height: 1.6;
-    font-style: justify;
+    text-align: justify;
 }
 /* === IMAGE === */
 #image {
@@ -91,7 +86,7 @@ html {
 
 
 #image2 {
-    margin-top: 20px;
+    margin-top: 50px;
     border: 2px solid #f8f9fa;
     border-radius: 10%;
     width: 280px;     /* un peu plus petite */
@@ -135,21 +130,6 @@ html {
     margin: 20px 0;
     color: #444;
 }
-
-/* === SECTION "A PROPOS" === */
-.second-block {
-    margin-top: 50px;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-.second-block h3 {
-    font-weight: bold;
-    padding-bottom: 5px;
-}
-
-
-
 
  /* === Parcours ====  */
 
@@ -237,25 +217,18 @@ html {
     transform: translateY(-2px);
 }
 
-.project-preview img {
-    width: 100%;
-    max-height: 250px;   /* limite la hauteur */
-    object-fit: cover;   /* garde le ratio de l'image */
-    border-radius: 10px;
-    margin-bottom: 10px;
-}
-
 .hidden-project {
     display: none;        /* au départ caché */
-    opacity: 0;           /* invisible */
-    transform: translateY(20px);  /* léger décalage vers le bas */
-    transition: all 0.5s ease;    /* transition douce */
 }
 
 .hidden-project.show {
     display: block;       /* devient visible */
-    opacity: 1;           /* apparition progressive */
-    transform: translateY(0); /* remonte à sa place */
+    animation: apparition 0.5s ease both; /* apparition progressive */
+}
+
+@keyframes apparition {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
 
 
@@ -265,12 +238,11 @@ html {
 
 /*=== Competances ===*/
 
-/* Conteneur d'une compétence (nom + barre) */
+
 .skill-container {
   margin-bottom: 12px;
 }
 
-/* Nom de la compétence au-dessus de la barre */
 .skill-name {
   display: block;
   font-size: 0.9rem;
@@ -279,7 +251,6 @@ html {
   font-weight: bold;
 }
 
-/* Barre de fond */
 .skill-bar {
   background: #f0f0f0; /* gris clair */
   border-radius: 20px;
@@ -287,7 +258,6 @@ html {
   overflow: hidden;
 }
 
-/* Barre remplie */
 .skill-fill {
   display: flex;
   align-items: center;
@@ -301,50 +271,6 @@ html {
   border-radius: 20px;
   transition: width 1.5s ease-in-out;
 }
-
-/* Animation au scroll */
-.skill-fill[data-animate="true"] {
-  width: var(--width);
-}
-
-/* === Cartes de compétences (optionnel) === */
-.card_competence {
-  background: #fff;
-  border-radius: 15px;
-  padding: 25px;
-  text-align: center;
-  transition: all 0.3s ease-in-out;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-.card_competence:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-}
-
-.card_competence h3 {
-  color: #007b83;
-  font-weight: 600;
-  margin-bottom: 20px;
-}
-
-.card_competence ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.card_competence li {
-  padding: 10px 0;
-  font-size: 1.1rem;
-  border-bottom: 1px solid #eee;
-}
-
-.card_competence li:last-child {
-  border-bottom: none;
-}
-
-
 
 /*==== Contact ====*/
 .contact-info {
@@ -414,7 +340,7 @@ html {
 
 #message input, #message textarea {
     caret-color: black;
-    color: rgb(32, 30, 30) !important;
+    color: rgb(32, 30, 30) ;
 }
 
 #message input::placeholder, #message textarea::placeholder {
@@ -466,7 +392,7 @@ html {
 
 
 
-/* === RESPONSIVE ===
+/* === RESPONSIVE === */
 /* Grand écran → ajustements mineurs */
 @media (max-width: 1200px) {
   /* Par exemple : réduire marges, taille des colonnes */
@@ -480,19 +406,15 @@ html {
     text-align: center;
     margin-top: 40px;
   }
-  .hero-actions {
-    justify-content: center;
-  }
   /* Carousel : flèches rapprochées */
   .carousel-control-prev { left: 5px; }
   .carousel-control-next { right: 5px; }
 }
 
 /* Tablette verticale / grands mobiles */
-/* Tablette verticale / grands mobiles */
 @media (max-width: 768px) {
 
-    #gauche, #droite {
+    #gauche {
         text-align: center;
         margin-top: 30px;
     }
@@ -500,19 +422,11 @@ html {
         max-width: 300px;
     }
 
-    .partieGauche {
-        margin-left: 0;
-    }
-
     .nav-link {
         margin-left: 0;
     }
-    .mes_projets {
-        margin-top: 50px;
-    }
-
     .parcours {
-        margin-top: 20px !important;
+        margin-top: 20px ;
     }
 
     #message {
@@ -551,9 +465,6 @@ html {
   h2, h3, h4 { font-size: 1.1rem; }
   .citation { font-size: 0.9rem; }
 
-     .mes_projets
-    {margin-top: 50px;}
-      
 #message{
     border-top-left-radius: 0px;     /* coin en haut à gauche */
     border-top-right-radius: 0px;     /* coin en haut à droite */
@@ -592,4 +503,11 @@ html {
 }
 }
 
-
+/* Respecte le réglage "réduire les animations" du système */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
