@@ -206,7 +206,16 @@
         "form.send": "Send",
         "form.sending": "Sending...",
         "form.success": "Thank you! Your message has been sent.",
-        "form.error": "Sending failed. You can email me directly at fatimatoudaka@gmail.com."
+        "form.error": "Sending failed. You can email me directly at fatimatoudaka@gmail.com.",
+        
+        "hero.tag": "First-year MIAGE master’s student · Claude Bernard University Lyon 1",
+        "hero.p1": "I’m a first-year MIAGE master’s student with a passion for technologies that are changing the world. From data analysis to advances in artificial intelligence, I aim to build innovative, reliable and secure digital solutions.",
+        "hero.cetic": "During my internship at CETIC, I built tools with Python and Django to collect and analyse data from GitLab projects.",
+        "hero.availability": "I’m looking for an <b>internship starting in May 2027</b> and a <b>work-study placement starting in September 2027</b> for the second year of my MIAGE master’s degree.",
+        "hero.p2": "Through this portfolio, I invite you to explore my background, my projects and my ambitions in technology.",
+        "hero.cv": "Download my CV",
+        "hero.projects": "View my projects",
+        "hero.quote": "“To create is to exist twice”",
     };
 
     // Textes français qui n'existent pas dans le HTML au chargement (utilisés par script.js)
