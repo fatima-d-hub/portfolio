@@ -28,11 +28,11 @@
         "hero.quote": "“To create is to exist twice”",
 
         "about.title": "About me",
-        "about.p1": "Currently in the first year of a <b>Master's in MIAGE</b> (Business Information Systems) at the École Polytechnique of Claude Bernard University Lyon 1, I see digital technology as a lever for creation and transformation. My journey, from Conakry to Limoges by way of an Erasmus semester in Mons and an internship at CETIC, has led me to <b>data analysis</b> and <b>artificial intelligence</b>, which I am now deepening.",
-        "about.p2": "Curious and committed, I enjoy projects with a strong human impact, whether through software development, supporting students or the digital transformation of businesses.",
+        "about.p1": "I studied <b>computer engineering for two years</b> at Gamal Abdel Nasser University of Conakry. I then continued my studies at the University of Limoges, where I earned my <b>bachelor’s degree in computer science with the French distinction « Bien »</b>. In Limoges, I also supported international students and took part in student association projects with AEGL and COP1. During my Erasmus semester at the University of Mons, I worked on a machine learning project to predict Swiss voting outcomes.",
+        "about.p2": "I’m currently in the <b>first year of my MIAGE master’s degree</b> at Polytech Lyon, Claude Bernard University Lyon 1, where I’m developing my skills in data analysis, software development and project management.",
+        "about.look2": "a <b>work-study placement</b> starting in <b>September 2027</b> for the second year of my MIAGE master’s degree",
         "about.lookTitle": "I am looking for",
         "about.look1": "an <b>internship</b> starting in <b>May 2027</b> (end of Master 1)",
-        "about.look2": "a <b>work-study position</b> (apprenticeship) for my <b>Master 2 MIAGE</b>",
         "about.lookBtn": "Contact me",
 
         "journey.title": "Education",
